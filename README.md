@@ -1,5 +1,17 @@
 # 101 Exercises for JS
 
+## Instructions for Students
+In order to submit your 101-JS exercises, you'll need to follow these guidelines:
+1. Clone this repository to your laptop.
+2. Create a branch with your $firstname_$lastname
+
+![creating a branch](img/create_branch.jpg)
+
+Ensure you always push to your branch, when committing your 101-JS changes:
+
+`username@macbook ~IdeaProjects/your-101-folder: ` **`git push origin first_last`**
+
+You can always run the command ```git branch -a``` to list all existing branches, and hit the **q** key to quit out of 
 ## Rationale
 101 Exercises exists as a self-test tool for learning JS fundamentals including data types, operators, and writing user defined fuctions. There are also exercises for practicing with collections such as arrays, objects, and arrays of objects. 
 
@@ -50,4 +62,4 @@ The number by the 101-exercises.js filename highlights the line for the exercise
 ![uncaught error message](https://cdn.glitch.com/eea181be-12a8-4dfb-9200-096233b7a427%2Funcaught_error.png?v=1566406423323)
   
 ### Typos or misspellings
-If you notice any typos, misspellings, or mistakes, please triple check your work and [open an issue on GitHub](https://github.com/ryanorsinger/101-exercises-js/issues) citing both the line number and exercise number.
+If you notice any typos, misspellings, or mistakes, please triple check your work and [open an issue on GitHub](https://github.com/CodeupClassroom/101-exercises-js/issues) citing both the line number and exercise number.
