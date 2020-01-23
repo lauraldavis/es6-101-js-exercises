@@ -7,11 +7,11 @@ In order to submit your 101-JS exercises, you'll need to follow these guidelines
 
 **This screenshot shows how to create and push your branch, once you have cloned the project, and changed into the project's root directory.**
 ![creating a branch](img/create_branch.jpg)
+*Remember to change 'firstname_lastname' to your name, the same as your branch name.*
 
-Ensure you always push to your branch, when committing your 101-JS changes:
+Ensure you **always** push to **your** branch, when committing your 101-JS changes, like so:
 
 `username@macbook ~IdeaProjects/your-101-folder: `**`git push origin firstname_lastname`**
-*Remember to change 'firstname_lastname' to your name, the same as your branch name.*
 
 You can always run the command ```git branch -a``` to list all existing branches (and verify that your branch is the active branch), and hit the **q** key to quit out of 
 ## Rationale
