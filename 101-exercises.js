@@ -560,10 +560,7 @@ addToDone("Exercise 42 is correct.")
 
 // Exercise 43
 // Write a function definition named isVowel that takes in value and returns true if the value is a, e, i, o, u in upper or lower case.
-function isVowel(str) {
-    let vowels = ['a', 'e', 'i', 'o', 'u'];
-    return vowels.indexOf(str.toLowerCase()) > -1;
-}
+let isVowel = str => ['a', 'e', 'i', 'o', 'u'].includes(str.charAt(0).toLowerCase());
 
 assert(isVowel("a"), true, "Exercise 43");
 assert(isVowel("U"), true, "Exercise 43");
@@ -575,7 +572,6 @@ addToDone("Exercise 43 is correct.")
 
 // Exercise 44
 // Write a function definition named hasVowels that takes in value and returns true if the string contains any vowels.
-let vowels = ["a", "e", "i", "o", "u"];
 let hasVowels = input => input.toLowerCase().split('').filter(isVowel).length > 0;
 
 assert(hasVowels("banana"), true, "Exercise 44");
@@ -586,7 +582,8 @@ addToDone("Exercise 44 is correct.")
 
 
 // Exercise 45
-// Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
+// Write a function definition named countVowels that takes in value and returns the count of the number of vowels in a sequence.
+let countVowels = str => str.split('').filter(isVowel).length;
 
 assert(countVowels("banana"), 3, "Exercise 45");
 assert(countVowels("ubuntu"), 3, "Exercise 45");
@@ -598,6 +595,8 @@ addToDone("Exercise 45 is correct.")
 
 // Exercise 46
 // Write a function definition named removeVowels that takes in string and returns the string without any vowels
+let isNotVowel = str => !['a', 'e', 'i', 'o', 'u'].includes(str.charAt(0).toLowerCase());
+let removeVowels = str => str.split('').filter(isNotVowel).join('');
 
 assert(removeVowels("banana"), "bnn", "Exercise 46");
 assert(removeVowels("ubuntu"), "bnt", "Exercise 46");
