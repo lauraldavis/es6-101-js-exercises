@@ -607,6 +607,7 @@ addToDone("Exercise 46 is correct.")
 
 // Exercise 47
 // Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
+let startsWithVowel = str => str.substring(0,1).split('').filter(isVowel).length > 0;
 
 assert(startsWithVowel("ubuntu"), true, "Exercise 47");
 assert(startsWithVowel("banana"), false, "Exercise 47");
@@ -616,7 +617,7 @@ addToDone("Exercise 47 is correct.")
 
 // Exercise 48
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
-
+let endsWithVowel = str => str.substring(str.length - 1).split('').filter(isVowel).length > 0;
 
 assert(endsWithVowel("ubuntu"), true, "Exercise 48");
 assert(endsWithVowel("banana"), true, "Exercise 48");
@@ -627,6 +628,8 @@ addToDone("Exercise 48 is correct.")
 
 // Exercise 49
 // Write a function definition named startsAndEndsWithVowel that takes in string and returns true if the string starts and ends with a vowel
+let startsAndEndsWithVowel = str => str.substring(0,1).split('').filter(isVowel).length > 0
+    && str.substring(str.length - 1).split('').filter(isVowel).length > 0;
 
 assert(startsAndEndsWithVowel("ubuntu"), true, "Exercise 49");
 assert(startsAndEndsWithVowel("banana"), false, "Exercise 49");
@@ -636,6 +639,7 @@ addToDone("Exercise 49 is correct.")
 
 // Exercise 50
 // Write a function definition named first that takes in sequence and returns the first value of that sequence.
+let first = input => input[0];
 
 assert(first("ubuntu"), "u", "Exercise 50");
 assert(first([1, 2, 3]), 1, "Exercise 50");
@@ -643,10 +647,9 @@ assert(first(["JS", "is", "awesome"]), "JS", "Exercise 50");
 addToDone("Exercise 50 is correct.")
 
 
-
-
 // Exercise 51
 // Write a function definition named second that takes in sequence and returns the second value of that sequence.
+let second = input => input[1];
 
 assert(second("ubuntu"), "b", "Exercise 51");
 assert(second([1, 2, 3]), 2, "Exercise 51");
@@ -656,6 +659,7 @@ addToDone("Exercise 51 is correct.")
 
 // Exercise 52
 // Write a function definition named third that takes in sequence and returns the third value of that sequence.
+let third = input => input[2];
 
 assert(third("ubuntu"), "u", "Exercise 52");
 assert(third([1, 2, 3]), 3, "Exercise 52");
@@ -665,6 +669,7 @@ addToDone("Exercise 52 is correct.")
 
 // Exercise 53
 // Write a function definition named forth that takes in sequence and returns the forth value of that sequence.
+let forth = input => input[3];
 
 assert(forth("ubuntu"), "n", "Exercise 53");
 assert(forth([1, 2, 3, 4]), 4, "Exercise 53");
@@ -674,6 +679,7 @@ addToDone("Exercise 53 is correct.")
 
 // Exercise 54
 // Write a function definition named last that takes in sequence and returns the last value of that sequence.
+let last = input => input[input.length - 1];
 
 assert(last("ubuntu"), "u", "Exercise 54");
 assert(last([1, 2, 3, 4]), 4, "Exercise 54");
@@ -684,6 +690,7 @@ addToDone("Exercise 54 is correct.")
 
 // Exercise 55
 // Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
+let secondToLast = input => input[input.length - 2];
 
 assert(secondToLast("ubuntu"), "t", "Exercise 55");
 assert(secondToLast([1, 2, 3, 4]), 3, "Exercise 55");
@@ -694,6 +701,7 @@ addToDone("Exercise 55 is correct.")
 
 // Exercise 56
 // Write a function definition named thirdToLast that takes in sequence and returns the third to last value of that sequence.
+let thirdToLast = input => input[input.length - 3];
 
 assert(thirdToLast("ubuntu"), "n", "Exercise 56");
 assert(thirdToLast([1, 2, 3, 4]), 2, "Exercise 56");
@@ -704,6 +712,7 @@ addToDone("Exercise 56 is correct.")
 
 // Exercise 57
 // Write a function definition named firstAndSecond that takes in sequence and returns the first and second value of that sequence as an array
+let firstAndSecond = input => input.splice(0,2);
 
 assert(firstAndSecond([1, 2, 3, 4]), [1, 2], "Exercise 57");
 assert(firstAndSecond(["JS", "is", "awesome"]), ["JS", "is"], "Exercise 57");
@@ -713,6 +722,7 @@ addToDone("Exercise 57 is correct.")
 
 // Exercise 58
 // Write a function definition named firstAndLast that takes in sequence and returns the first and last value of that sequence as an array
+let firstAndLast = input => input.splice(0,1).concat(input.splice(input.length - 1, 1));
 
 assert(firstAndLast([1, 2, 3, 4]), [1, 4], "Exercise 58");
 assert(firstAndLast(["JS", "is", "awesome"]), ["JS", "awesome"], "Exercise 58");
@@ -720,9 +730,9 @@ assert(firstAndLast(["strawberry", "kiwi", "mango", "guava"]), ["strawberry", "g
 addToDone("Exercise 58 is correct.")
 
 
-
 // Exercise 59
 // Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
+let firstToLast = input => input.concat(input.splice(0,1));
 
 assert(firstToLast([1, 2, 3, 4]), [2, 3, 4, 1], "Exercise 59");
 assert(firstToLast(["JS", "is", "awesome"]), ["is", "awesome", "JS"], "Exercise 59");
@@ -730,15 +740,14 @@ assert(firstToLast(["strawberry", "kiwi", "mango", "guava"]), ["kiwi", "mango", 
 addToDone("Exercise 59 is correct.")
 
 
-
 // Exercise 60
 // Write a function definition named sumAll that takes in sequence of numbers and returns all the numbers added together.
+let sumAll = input => input.reduce(function(a,b) {return a+b;});
 
 assert(sumAll([1, 2, 3, 4]), 10, "Exercise 60");
 assert(sumAll([3, 3, 3]), 9, "Exercise 60");
 assert(sumAll([0, 5, 6]), 11, "Exercise 60");
 addToDone("Exercise 60 is correct.")
-
 
 
 //  Exercise 61
