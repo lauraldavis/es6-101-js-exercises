@@ -742,7 +742,7 @@ addToDone("Exercise 59 is correct.")
 
 // Exercise 60
 // Write a function definition named sumAll that takes in sequence of numbers and returns all the numbers added together.
-let sumAll = input => input.reduce(function(a,b) {return a+b;});
+let sumAll = input => input.reduce((a,b) => a+b, 0);
 
 assert(sumAll([1, 2, 3, 4]), 10, "Exercise 60");
 assert(sumAll([3, 3, 3]), 9, "Exercise 60");
@@ -752,6 +752,7 @@ addToDone("Exercise 60 is correct.")
 
 //  Exercise 61
 //  Write a function definition named mean that takes in sequence of numbers and returns the average value
+let mean = input => input.reduce((a,b) => a+b, 0) / input.length;
 
 assert(mean([1, 2, 3, 4]), 2.5, "Exercise 61");
 assert(mean([3, 3, 3]), 3, "Exercise 61");
@@ -759,9 +760,13 @@ assert(mean([1, 5, 6]), 4, "Exercise 61");
 addToDone("Exercise 61 is correct.")
 
 
-
 // Exercise 62
 // Write a function definition named median that takes in sequence of numbers and returns the average value
+let median = input => {
+    let mid = Math.floor(input.length / 2),
+        nums = input.sort((a, b) => a - b);
+    return input.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+}
 
 assert(median([1, 2, 3, 4, 5]), 3.0, "Exercise 62");
 assert(median([1, 2, 3]), 2.0, "Exercise 62");
@@ -771,8 +776,8 @@ addToDone("Exercise 62 is correct.")
 
 
 // Exercise 63
-// Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus theminimum.
-
+// Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus the minimum.
+let maxMinusMin = input => input.sort()[input.length - 1] - input.sort()[0];
 
 assert(maxMinusMin([1, 2, 2, 8, 3, 4]), 7, "Exercise 63");
 assert(maxMinusMin([1, 1, 2, 3, 9]), 8, "Exercise 63");
@@ -782,6 +787,15 @@ addToDone("Exercise 63 is correct.")
 
 // Exercise 64
 // Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
+// function productOfAll(input) {
+//     let total = 0;
+//     input.forEach(function (element) {
+//         (total == 0) ? total = element: total = total * element;
+//     });
+//     return total;
+// }
+let total = 0;
+let productOfAll = input => input.reduce((a,b) => (a*b));
 
 assert(productOfAll([1, 2, 3]), 6, "Exercise 64");
 assert(productOfAll([3, 4, 5]), 60, "Exercise 64");
@@ -791,7 +805,7 @@ addToDone("Exercise 64 is correct.")
 
 // Exercise 65
 // Write a function definition named getHighestNumber that takes in sequence of numbers and returns the largest number.
-
+let getHighestNumber = input => input.sort()[input.sort().length - 1];
 
 assert(getHighestNumber([1, 2, 3]), 3, "Exercise 65");
 assert(getHighestNumber([1, 5, 2, 3, 4]), 5, "Exercise 65");
@@ -799,11 +813,9 @@ assert(getHighestNumber([5, 1, 2, 4, 9]), 9, "Exercise 65");
 addToDone("Exercise 65 is correct.")
 
 
-
-
 // Exercise 66
 // Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
-
+let getSmallestNumber = input => input.sort()[0];
 
 assert(getSmallestNumber([1, 2, 3]), 1, "Exercise 66");
 assert(getSmallestNumber([3, 5, 9, 8, 1]), 1, "Exercise 66");
@@ -813,6 +825,7 @@ addToDone("Exercise 66 is correct.")
 
 // Exercise 67
 // Write a function definition named onlyOddNumbers that takes in sequence of numbers and returns the odd numbers in an array.
+let onlyOddNumbers = input => input.filter(number => number % 2 !== 0);
 
 assert(onlyOddNumbers([1, 2, 3]), [1, 3], "Exercise 67");
 assert(onlyOddNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -3, -1, 1, 3, 5], "Exercise 67");
@@ -820,9 +833,9 @@ assert(onlyOddNumbers([-4, -3, 1]), [-3, 1], "Exercise 67");
 addToDone("Exercise 67 is correct.")
 
 
-
 // Exercise 68
 // Write a function definition named onlyEvenNumbers that takes in sequence of numbers and returns the even numbers in an array.
+let onlyEvenNumbers = input => input.filter(number => number % 2 === 0);
 
 assert(onlyEvenNumbers([1, 2, 3]), [2], "Exercise 68");
 assert(onlyEvenNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-4, -2, 2, 4], "Exercise 68");
@@ -832,6 +845,7 @@ addToDone("Exercise 68 is correct.")
 
 // Exercise 69
 // Write a function definition named onlyPositiveNumbers that takes in sequence of numbers and returns the positive numbers in an array.
+let onlyPositiveNumbers = input => input.filter(number => number > 0);
 
 assert(onlyPositiveNumbers([1, 2, 3]), [1, 2, 3], "Exercise 69");
 assert(onlyPositiveNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [1, 2, 3, 4, 5], "Exercise 69");
@@ -841,12 +855,12 @@ addToDone("Exercise 69 is correct.")
 
 // Exercise 70
 // Write a function definition named onlyNegativeNumbers that takes in sequence of numbers and returns the negative numbers in an array.
+let onlyNegativeNumbers = input => input.filter(number => number < 0);
 
 assert(onlyNegativeNumbers([1, 2, 3]), [], "Exercise 70");
 assert(onlyNegativeNumbers([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]), [-5, -4, -3, -2, -1], "Exercise 70");
 assert(onlyNegativeNumbers([-4, -3, 1]), [-4, -3], "Exercise 70");
 addToDone("Exercise 70 is correct.");
-
 
 
 // Exercise 71
