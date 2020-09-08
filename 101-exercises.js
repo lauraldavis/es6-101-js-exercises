@@ -787,14 +787,6 @@ addToDone("Exercise 63 is correct.")
 
 // Exercise 64
 // Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
-// function productOfAll(input) {
-//     let total = 0;
-//     input.forEach(function (element) {
-//         (total == 0) ? total = element: total = total * element;
-//     });
-//     return total;
-// }
-let total = 0;
 let productOfAll = input => input.reduce((a,b) => (a*b));
 
 assert(productOfAll([1, 2, 3]), 6, "Exercise 64");
@@ -974,6 +966,8 @@ addToDone("Exercise 80 is correct.")
 
 // Exercise 81
 // Write a function definition named shortestString that takes in an array of strings and returns the shortest string in the array.
+let shortestString = arr => arr.sort((a, b) => a.length - b.length)[0];
+// ASC a - b, DESC b - a
 
 assert(shortestString(["kiwi", "mango", "strawberry"]), "kiwi", "Exercise 81");
 assert(shortestString(["hello", "everybody"]), "hello", "Exercise 81");
@@ -983,6 +977,8 @@ addToDone("Exercise 81 is correct.")
 
 // Exercise 82
 // Write a function definition named longestString that takes in sequence of strings and returns the longest string in the array.
+let longestString = arr => arr.sort((a, b) => b.length - a.length)[0];
+// ASC a - b, DESC b - a
 
 assert(longestString(["kiwi", "mango", "strawberry"]), "strawberry", "Exercise 82");
 assert(longestString(["hello", "everybody"]), "everybody", "Exercise 82");
@@ -992,6 +988,7 @@ addToDone("Exercise 82 is correct.")
 
 // Exercise 83
 // Write a function definition named getUniqueValues that takes in an array and returns an with only the unique values from that array.
+let getUniqueValues = arr => arr.filter((element, index) => arr.indexOf(element) === index);
 
 assert(getUniqueValues(["ant", "ant", "mosquito", "mosquito", "ladybug"]), ["ant", "mosquito", "ladybug"], "Exercise 83");
 assert(getUniqueValues(["b", "a", "n", "a", "n", "a", "s"]), ["b", "a", "n", "s"], "Exercise 83");
@@ -1001,7 +998,7 @@ addToDone("Exercise 83 is correct.")
 
 // Exercise 84
 // Write a function definition named elementsTimesTwo that takes in an array of numbers and returns an array with each value multiplied by 2.
-
+let elementsTimesTwo = arr => arr.map((a) => (a*2));
 
 assert(elementsTimesTwo([1, 2, 3]), [2, 4, 6], "Exercise 84")
 assert(elementsTimesTwo([0, 0, 0]), [0, 0, 0], "Exercise 84")
@@ -1011,7 +1008,7 @@ addToDone("Exercise 84 is correct.")
 
 // Exercise 85
 // Write a function named flatten that takes in an array of arrays. Return the flattened array.
-
+let flatten = arr => arr.flat();
 
 assert(flatten([[1, 2], [3, 4], [5, 6]]), [1, 2, 3, 4, 5, 6], "Exercise 85");
 assert(flatten([[1, 2, 3], [1, 2, 3], [1, 2, 3]]), [1, 2, 3, 1, 2, 3, 1, 2, 3], "Exercise 85");
@@ -1019,9 +1016,9 @@ assert(flatten([["tomato", "mango", "kiwi"], ["eggplant", "broccoli"]]), ["tomat
 addToDone("Exercise 85 is correct.")
 
 
-
 // Exercise 86
 // Write a function definition named addOneToArray that adds one to every number in an array
+let addOneToArray = arr => arr.map((a) => (a+1));
 
 assert(addOneToArray([1, 2, 3]), [2, 3, 4], "Exercise 86");
 assert(addOneToArray([4, 4, 4]), [5, 5, 5], "Exercise 86");
@@ -1049,6 +1046,7 @@ const thomasPaper = {
 
 // Exercise 87
 // Write a function named getPaperTitle that takes in a object and returns the title property
+let getPaperTitle = object => object.title;
 
 assert(getPaperTitle(tukeyPaper), "The Future of Data Analysis", "Exercise 87");
 assert(getPaperTitle(thomasPaper), "A mathematical model of glutathione metabolism", "Exercise 87");
@@ -1057,6 +1055,7 @@ addToDone("Exercise 87 is correct.")
 
 // Exercise 88
 // Write a function named getYearPublished that takes in an objects and returns the value behind the "year_published" key.
+let getYearPublished = object => object.year_published;
 
 assert(getYearPublished(tukeyPaper), 1962, "Exercise 88");
 assert(getYearPublished(thomasPaper), 2008, "Exercise 88");
@@ -1072,15 +1071,15 @@ const book = {
 
 // Exercise 89
 // Write a function named getPrice that takes in a object and returns the price
+let getPrice = object => object.price;
 
 assert(getPrice(book), 36.99, "Exercise 89");
 addToDone("Exercise 89 is complete.")
 
 
-
 // Exercise 90
 // Write a function named getBookAuthor that takes in a object (the above declared book variable) and returns the author's name
-
+let getBookAuthor = object => object.author;
 
 assert(getBookAuthor(book), "Frances Buontempo", "Exercise 90");
 addToDone("Exercise 90 is complete.")
@@ -1115,14 +1114,15 @@ const books = [
 
 // Exercise 91
 // Write a function named getNumberOfBooks that takes in a array of objects and returns the number of objects in that array.
+let getNumberOfBooks = arr => arr.length;
 
 assert(getNumberOfBooks(books), 4, "Exercise 91");
 addToDone("Exercise 91 is complete.")
 
 
-
 // Exercise 92
 // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
+let totalOfBookPrices = arr => arr.reduce((total,bk) => {return total+bk.price;}, 0);
 
 assert(totalOfBookPrices(books), 122.9, "Exercise 92")
 addToDone("Exercise 92 is complete.")
@@ -1130,6 +1130,7 @@ addToDone("Exercise 92 is complete.")
 
 // Exercise 93
 // Write a function named getAverageBookPrice that takes in a array of objects and returns the average book price.
+let getAverageBookPrice = arr => arr.reduce((total,bk) => {return total+bk.price;}, 0) / arr.length;
 
 assert(getAverageBookPrice(books), 30.725, "Exercise 93");
 addToDone("Exercise 93 is complete.")
@@ -1138,6 +1139,8 @@ addToDone("Exercise 93 is complete.")
 // Exercise 94
 // Write a function called highestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the highest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero, you may want to create a object with the price set to zero to compare to each object's price in the array
+//
+let highestPriceBook = arr => arr.sort((a, b) => b.price - a.price)[0];
 
 assert(highestPriceBook(books), {
     "title": "The Visual Display of Quantitative Information",
@@ -1148,11 +1151,10 @@ assert(highestPriceBook(books), {
 addToDone("Exercise 94 is complete")
 
 
-
 // Exercise 95
 // Write a function called lowestPriceBook that takes in the above defined array of objects "books" and returns the object containing the title, price, and author of the book with the lowest priced book.
 // Hint: Much like sometimes start functions with a variable set to zero or float('inf'), you may want to create a object with the price set to float('inf') to compare to each object in the array
-
+let lowestPriceBook = arr => arr.sort((a, b) => a.price - b.price)[0];
 
 assert(lowestPriceBook(books), {
     "title": "Weapons of Math Destruction",
